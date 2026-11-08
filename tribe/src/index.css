@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html,
+  body,
+  #root {
+    min-height: 100%;
+  }
+  body {
+    @apply bg-stone-950 text-stone-100 antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+  :focus-visible {
+    @apply outline-none ring-2 ring-orange-500/70 ring-offset-2 ring-offset-stone-900;
+  }
+}
+
+@layer utilities {
+  /* Replaces the plugin-only `scrollbar-none` class from the original file. */
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 1ms !important;
+    transition-duration: 1ms !important;
+  }
+}
